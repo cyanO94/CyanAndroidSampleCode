@@ -10,8 +10,6 @@ import org.orbitmvi.orbit.viewmodel.container
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
-): ContainerHost<MainState, MainSideEffect>,ViewModel() {
+class MainViewModel @Inject constructor() : ContainerHost<MainState, MainSideEffect>, ViewModel() {
     override val container: Container<MainState, MainSideEffect> = container(MainState())
-
 }

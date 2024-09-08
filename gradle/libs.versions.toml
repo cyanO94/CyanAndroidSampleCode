@@ -8,6 +8,7 @@ composeBom = "2024.09.00"
 hilt = "2.48"
 ksp = "2.0.20-1.0.25"
 orbit = "9.0.0"
+ktlint = "12.1.1"
 
 # test
 junit = "4.13.2"
@@ -48,5 +49,5 @@ jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = 
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint"}
 
