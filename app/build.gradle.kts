@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kotlin.android.ksp)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -26,7 +29,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -50,6 +53,18 @@ android {
     }
 }
 
+ktlint {
+    android.set(true)
+    outputColorName.set("RED")
+    additionalEditorconfig.set(
+        mapOf(
+            "max_line_length" to "120",
+            "ktlint_standard_annotation" to "disabled",
+            "ktlint_function_naming_ignore_when_annotated_with" to "Composable",
+        ),
+    )
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -63,4 +78,12 @@ dependencies {
     implementation(libs.androidx.material3)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    implementation(libs.orbit.viewmodel)
+    implementation(libs.orbit.compose)
+
+    implementation(libs.bundles.ktor)
 }
