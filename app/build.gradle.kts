@@ -68,4 +68,7 @@ dependencies {
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+
+    implementation(libs.orbit.viewmodel)
+    implementation(libs.orbit.compose)
 }
