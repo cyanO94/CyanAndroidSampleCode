@@ -16,12 +16,12 @@ import javax.inject.Singleton
 object ApiModule {
     @Singleton
     @Provides
-    fun provideKtorClient() = HttpClient(Android) {
-        install(Logging) {
-            level = LogLevel.ALL
+    fun provideKtorClient() =
+        HttpClient(Android) {
+            install(Logging) {
+                level = LogLevel.ALL
+            }
+            install(DefaultRequest) {
+            }
         }
-        install(DefaultRequest) {
-
-        }
-    }
 }

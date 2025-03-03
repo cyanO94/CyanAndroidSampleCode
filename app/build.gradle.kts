@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.kotlin.android.ksp)
     alias(libs.plugins.ktlint)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -56,13 +57,6 @@ android {
 ktlint {
     android.set(true)
     outputColorName.set("RED")
-    additionalEditorconfig.set(
-        mapOf(
-            "max_line_length" to "120",
-            "ktlint_standard_annotation" to "disabled",
-            "ktlint_function_naming_ignore_when_annotated_with" to "Composable",
-        ),
-    )
 }
 
 dependencies {
@@ -86,4 +80,7 @@ dependencies {
     implementation(libs.orbit.compose)
 
     implementation(libs.bundles.ktor)
+
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.navigation.compose)
 }
