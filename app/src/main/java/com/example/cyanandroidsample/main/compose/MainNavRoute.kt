@@ -8,8 +8,12 @@ sealed interface MainNavRoute {
     data object Home : MainNavRoute
 
     @Serializable
-    data class Detail(val id: Int) : MainNavRoute
+    data class Detail(
+        val id: Int
+    ) : MainNavRoute
 
     @Serializable
-    data class DetailWithNavType(val detailModel: DetailModel) : MainNavRoute
+    data class DetailWithNavType(
+        val detailModel: DetailModel
+    ) : MainNavRoute
 }

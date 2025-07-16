@@ -3,10 +3,8 @@ package com.example.cyanandroidsample.login.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -32,24 +30,26 @@ fun SocialButton(
     imagePainter: Painter,
     textColor: Color,
     backgroundColor: Color,
-    onClick: ()->Unit
+    onClick: () -> Unit,
 ) {
-    Button (
+    Button(
         onClick = onClick,
         enabled = isEnabled,
-        modifier = modifier
-            .fillMaxWidth()
-            .wrapContentHeight(),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = backgroundColor,
-            contentColor = textColor,
-        ),
-        shape = RoundedCornerShape(12.dp)
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .wrapContentHeight(),
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = backgroundColor,
+                contentColor = textColor,
+            ),
+        shape = RoundedCornerShape(12.dp),
     ) {
-        Row (
+        Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(vertical = 16.dp)
+            modifier = Modifier.padding(vertical = 16.dp),
         ) {
             Image(
                 painter = imagePainter,
@@ -58,7 +58,7 @@ fun SocialButton(
             WidthSpacer(16)
 
             Text(
-                text = text
+                text = text,
             )
         }
     }
@@ -74,7 +74,7 @@ private fun SocialButtonDisablePreview() {
             backgroundColor = Color(0xFFFEE500),
             textColor = Color.Black,
             imagePainter = painterResource(R.drawable.ic_kakao),
-            onClick = {}
+            onClick = {},
         )
     }
 }

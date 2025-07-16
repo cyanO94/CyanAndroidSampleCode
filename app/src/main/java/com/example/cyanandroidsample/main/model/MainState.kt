@@ -5,5 +5,7 @@ data class MainState(
 )
 
 sealed class MainSideEffect {
-    data class Toast(val text: String) : MainSideEffect()
+    data class Toast(
+        val text: String
+    ) : MainSideEffect()
 }

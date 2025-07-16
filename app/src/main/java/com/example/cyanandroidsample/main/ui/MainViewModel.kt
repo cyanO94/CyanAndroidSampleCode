@@ -12,6 +12,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel
     @Inject
-    constructor() : ContainerHost<MainState, MainSideEffect>, ViewModel() {
+    constructor() :
+    ViewModel(),
+        ContainerHost<MainState, MainSideEffect> {
         override val container: Container<MainState, MainSideEffect> = container(MainState())
     }
