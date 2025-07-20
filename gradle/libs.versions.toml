@@ -21,6 +21,7 @@ espressoCore = "3.6.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-browser = { group = "androidx.browser", name = "browser", version = "1.8.0" }
 
 # hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
