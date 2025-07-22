@@ -28,7 +28,8 @@ class AppleLoginWithCustomTabsActivity: ComponentActivity() {
         val appleAuthUri = Uri.Builder()
             .scheme("https")
             .authority("appleid.apple.com")
-            .appendPath("auth/authorize")
+            .appendPath("auth")
+            .appendPath("authorize")
             .appendQueryParameter("response_mode", "form_post")
             .appendQueryParameter("response_type", "code id_token")
             .appendQueryParameter("client_id", clientId)
@@ -44,7 +45,6 @@ class AppleLoginWithCustomTabsActivity: ComponentActivity() {
         super.onSaveInstanceState(outState)
         outState.putString(STATE_KEY, currentState)
     }
-
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
