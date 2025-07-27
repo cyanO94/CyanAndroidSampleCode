@@ -5,7 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.compose.material3.Text
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import java.security.SecureRandom
 import java.util.Base64
 
@@ -16,6 +23,8 @@ class AppleLoginWithCustomTabsActivity: ComponentActivity() {
     private val clientId = "YOUR_CLIENT_ID"
     private val redirectUri = "YOUR_REDIRECT_URI"
 
+    private var loginInfo: String = "로그인 안됨"
+
     companion object {
         private const val TAG = "AppleLogin"
         private const val STATE_KEY = "apple_login_state"
@@ -23,6 +32,16 @@ class AppleLoginWithCustomTabsActivity: ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setContent {
+            var loginText by remember { mutableStateOf(loginInfo) }
+            LaunchedEffect(key1 = loginInfo) {
+                loginText = loginInfo
+            }
+            Text(
+                text = loginText
+            )
+        }
 
         currentState = savedInstanceState?.getString(STATE_KEY) ?: generateState()
         val appleAuthUri = Uri.Builder()
@@ -32,6 +51,7 @@ class AppleLoginWithCustomTabsActivity: ComponentActivity() {
             .appendPath("authorize")
             .appendQueryParameter("response_mode", "form_post")
             .appendQueryParameter("response_type", "code id_token")
+            .appendQueryParameter("scope", "name email")
             .appendQueryParameter("client_id", clientId)
             .appendQueryParameter("redirect_uri", redirectUri)
             .appendQueryParameter("state", currentState)
@@ -51,17 +71,19 @@ class AppleLoginWithCustomTabsActivity: ComponentActivity() {
         setIntent(intent)
         Log.d(TAG, "intent data : ${intent.data}")
 
-
         intent.data?.let { uri ->
+            loginInfo = intent.data.toString()
+
             parseUri(uri)
         }
     }
 
     private fun parseUri(uri: Uri) {
         val token = uri.getQueryParameter("token")
-        Log.d(TAG, "token : $token")
-
-        finish()
+        token?.let {
+            loginInfo = "token : $token"
+            Log.d(TAG, "token : $token")
+        }
     }
 
     private fun generateState(): String {
