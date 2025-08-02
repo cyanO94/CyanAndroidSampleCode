@@ -1,17 +1,18 @@
 [versions]
-agp = "8.10.1"
-kotlin = "2.1.21"
-ksp = "2.1.21-2.0.2"  # kotlin 2.1.10
-kotlinxSerializationJson = "1.8.1" # kotlin 2.1.10
+agp = "8.12.0"
+kotlin = "2.2.0"
+ksp = "2.2.0-2.0.2"  # kotlin 2.1.10
+kotlinxSerializationJson = "1.9.0" # kotlin 2.1.10
 coreKtx = "1.16.0"
-lifecycleRuntimeKtx = "2.9.1"
+lifecycleRuntimeKtx = "2.9.2"
 activityCompose = "1.10.1"
-composeBom = "2025.06.01"
-hilt = "2.56.2"
+composeBom = "2025.07.00"
+hilt = "2.57"
 orbit = "10.0.0"
 ktlint = "13.0.0"
-ktor = "3.2.1"
+ktor = "3.2.3"
 navigationCompose = "2.9.1"
+circuit = "0.30.0"
 
 # test
 junit = "4.13.2"
@@ -26,6 +27,9 @@ androidx-browser = { group = "androidx.browser", name = "browser", version = "1.
 # hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+
+# circuit
+circuit-foundation = { group = "com.slack.circuit", name = "circuit-foundation", version.ref = "circuit" }
 
 # orbit
 orbit-viewmodel = { group = "org.orbit-mvi", name = "orbit-viewmodel", version.ref = "orbit" }
