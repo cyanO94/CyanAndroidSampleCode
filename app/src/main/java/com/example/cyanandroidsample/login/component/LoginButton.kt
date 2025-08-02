@@ -1,6 +1,7 @@
 package com.example.cyanandroidsample.login.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,6 +31,7 @@ fun SocialButton(
     imagePainter: Painter,
     textColor: Color,
     backgroundColor: Color,
+    borderColor: Color = Color.Transparent,
     onClick: () -> Unit,
 ) {
     Button(
@@ -38,7 +40,8 @@ fun SocialButton(
         modifier =
             modifier
                 .fillMaxWidth()
-                .wrapContentHeight(),
+                .wrapContentHeight()
+                .border(1.dp, borderColor, RoundedCornerShape(12.dp)),
         colors =
             ButtonDefaults.buttonColors(
                 containerColor = backgroundColor,
